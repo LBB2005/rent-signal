@@ -8,8 +8,7 @@ and a map.
 
 Built with Next.js 16, the Anthropic API, and Perplexity search.
 
-<!-- TODO: drop a screenshot or GIF of the chat UI here -->
-<!-- ![Rent Signal](docs/screenshot.png) -->
+![Rent Signal — a finished answer, with an inline map and cited sources](docs/04-answer.png)
 
 ---
 
@@ -21,6 +20,29 @@ crime stats, a walkability score, a news search for whether the market is
 moving. Then you hold it all in your head and guess.
 
 Rent Signal collapses that into one question.
+
+---
+
+## What it looks like
+
+**Start with a question, not a search form.**
+
+![The Rent Signal chat interface](docs/01-empty-state.png)
+
+**Every conversation is scoped to an area** — which is what the listings panel
+and the agents' searches key off.
+
+![Adding a new area](docs/02-new-area-modal.png)
+
+**Then watch the research happen.** The orchestrator picks only the specialists
+the question needs — here it routed to Pricing and Sentiment, not all five — and
+their status streams live while Rentcast listings and the map populate on the
+right.
+
+![Two specialist agents running in parallel while live listings load](docs/03-agents-running.png)
+
+The finished answer is the screenshot at the top of this README: streamed
+markdown with inline charts and maps, and sources behind every claim.
 
 ---
 
