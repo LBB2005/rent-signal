@@ -4,6 +4,15 @@ export interface Message {
   content: string;
   timestamp: Date;
   agentRun?: AgentRun[];
+  sources?: string[];
+}
+
+export interface Conversation {
+  id: string;
+  title: string;
+  preview: string;
+  areaId: string;
+  createdAt: Date;
 }
 
 export interface Area {
@@ -15,7 +24,7 @@ export interface Area {
   messages: Message[];
 }
 
-export type AgentName = 'pricing' | 'social' | 'neighborhood' | 'commute';
+export type AgentName = 'pricing' | 'social' | 'neighborhood' | 'commute' | 'research';
 export type AgentStatus = 'pending' | 'running' | 'done' | 'error';
 
 export interface AgentRun {
@@ -23,9 +32,24 @@ export interface AgentRun {
   status: AgentStatus;
 }
 
-export const AGENT_META: Record<AgentName, { label: string; emoji: string }> = {
-  pricing:      { label: 'Pricing Agent',    emoji: '💰' },
-  social:       { label: 'Sentiment Agent',  emoji: '💬' },
-  neighborhood: { label: 'Neighborhood Agent', emoji: '🏘️' },
-  commute:      { label: 'Commute Agent',    emoji: '🚇' },
+export interface Listing {
+  id: string;
+  address: string;
+  price: number;
+  beds: number;
+  baths: number;
+  sqft?: number;
+  latitude: number;
+  longitude: number;
+  photoUrl?: string;
+  photoUrls?: string[];
+  zillowUrl?: string;
+}
+
+export const AGENT_META: Record<AgentName, { label: string }> = {
+  pricing:      { label: 'Pricing Agent'      },
+  social:       { label: 'Sentiment Agent'    },
+  neighborhood: { label: 'Neighborhood Agent' },
+  commute:      { label: 'Commute Agent'      },
+  research:     { label: 'Research Agent'     },
 };
